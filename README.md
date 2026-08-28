@@ -6,6 +6,12 @@
 
 ---
 
+Ibrahim Hussain Johar
+ITSX26
+20260828
+
+Valde utbildningen på grund av nyfikenhet för datorer och hur man kan lagras och skydda sin information på ett säkersätt. Lära mig om vilka utmaningar och lösningar finns. Kanske även komma på nya lösningar.
+
 ## 1. Vad du ska göra
 
 I den här labben ska du arbeta med ett litet demo-repository som visar hur säkerhet kan byggas in i ett utvecklings- och leveransflöde.
