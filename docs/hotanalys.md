@@ -1,0 +1,5 @@
+# Hot
+
+# Sårbarheter
+
+# Skyddsåtgärder
