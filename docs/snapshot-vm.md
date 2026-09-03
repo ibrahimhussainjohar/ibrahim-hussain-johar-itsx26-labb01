@@ -8,8 +8,10 @@ Välj snapshot and tryck på play knappen nedan för
 
 
 Ändring av systemet
+
 ![image](images/2026-09-03_4.png)
 
 
 Går tillbaka utgångspunkten
+
 ![image](images/2026-09-03_5.png)
