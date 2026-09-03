@@ -5,3 +5,11 @@
 Välj snapshot and try på play knappen nedan för
 
 ![image](images/2026-09-03_2.png)
+
+
+Ändring av systemet
+![image](images/2026-09-03_3.png)
+
+
+Går tillbaka utgångspunkten
+![image](images/2026-09-03_4.png)
