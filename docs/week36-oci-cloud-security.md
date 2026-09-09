@@ -6,8 +6,14 @@ Namn: ubuntu
 
 ---
 
+## 2. Inlogging VM
 
-## 2. Linux-kommandon
+| Inloggad | Servers namn | Operativsystem     | Uptime   |
+|----------|--------------|--------------------|----------|
+| ibrahim  | ubuntu       | ubuntu 26.04.1 LTS | 1h 19min |
+
+
+## 3. Linux-kommandon
 
 | Kommando       | Vad visar det?                                                              | CIA-koppling                                                                                                                                                                                                                                                      |
 |----------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -23,38 +29,38 @@ Namn: ubuntu
 | ps aux \| head | Visar alla processer i systmet och även vilken användare som kör processen. | Konfidentialetet. Det finns mycket information om systemet. Vem, vad och när körs processen.                                                                                                                                                                      |
 
 ---
-## 3. Hardening
+## 4. Hardening
 
 | Kontroll | Risk | Vad gjorde jag? | Hur verifierade jag? | CIA |
 |----------|------|-----------------|----------------------|-----|
 |          |      |                 |                      |     |
 ---
-## 4. Recovery-plan
+## 5. Recovery-plan
 ### Vad kan gå fel?
 ### Hur upptäcker jag problemet?
 ### Vad kontrollerar jag först?
 ### Hur återställer jag åtkomst?
 ### När behöver jag hjälp?
 ---
-## 5. Backup
+## 6. Backup
 ### Vad har jag sparat?
 ### Vad finns i GitHub?
 ### Vad kan återskapas?
 ### Vad går inte att återskapa?
 ---
-## 6. Cleanup
+## 7. Cleanup
 ### VM-instans
 ### Diskar
 ### Backuper
 ### Publika IP-adresser
 ### GitHub-evidens
 ---
-## 7. CIA-reflektion
+## 8. CIA-reflektion
 ### Konfidentialitet
 ### Integritet
 ### Tillgänglighet
 ---
-## 8. Reflektion
+## 9. Reflektion
 ### Vad fungerade bra?
 ### Vad var svårt?
 ### Vad lärde jag mig?
