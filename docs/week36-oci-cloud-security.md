@@ -76,11 +76,11 @@ Endast användare `ibrahim` kan läsa och skriva filen.
 $ sudo apt update
 88 packages can be upgraded. Run 'apt list --upgradable' to see them
 ```
-Varför är uppdateringar viktiga?
+*Varför är uppdateringar viktiga?*
 
 Uppdateringen kan ingå säkerhetspatcher som fixar sårbarheter, buggar och systemet hålls stabilare längre. 
 
-Vilken del av CIA påverkas?
+*Vilken del av CIA påverkas?*
 
 Uppdateringen kan fixa sårbarheter och därmed minska risken av obehörig intrång. (Konfidentialitet).
 Systemet blir mer stabilt eftersom updateringar brukar fixa buggar som orsakar krachar i applikationer. Mindre krash och användare fortsätta använda applikationen. (Tillgänglighet).
