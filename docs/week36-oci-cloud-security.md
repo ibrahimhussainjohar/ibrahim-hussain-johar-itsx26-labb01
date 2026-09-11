@@ -112,7 +112,7 @@ En oväntad process kan använda mer av systemet tillgångar så att systemet bl
 använder systemet tillgångar. Det kan även vara malware som samlar in information och värsta fall har rättighet att ändra information i systemet och därmed påverka både konfidentialitet och intergritet.
 
 
-Kontroll 5
+### Kontroll 5
 
 ```bash
 $ journalctl -n 20
@@ -146,6 +146,36 @@ Loggning är också för att hålla koll på att endast behörig användare har 
 **Vad skulle vi leta efter om något gått fel?**
 
 När hände felet. Har oväntat process startad. Har viktiga filer ändrat eller nya filer skapad.
+
+### Kontroll 6
+
+**Hur loggade du in?**
+
+```bash
+ssh-copy-id ibrahim@ip-adress
+ssh ibrahim@ip-adress
+```
+
+`ssh-copy-id` kopierar ssh public key till virtual machine.
+`ssh` är själva kommando som kopplar från host till virtual machine.
+
+**Varför används SSH?**
+
+SSH är secure shell. Det är en encrypterad koppling. Det används för att det är säker koppling och används för hantering av remote server.
+
+
+**Vad skulle du göra om SSH slutade fungera?**
+
+```bash
+ping vm-ip-adress
+```
+
+Om man andra tillgång till virtual machine finns kolla `ssh` status och testa att restarta.
+Kolla om port 22 är öppet i virtual machine. 
+Dubble kolla om man har stavat korrekt i `ssh` kommando.
+Kolla om din `ssh` nyckel finns kvar i ~/.ssh.
+Testa ´ssh -v vm-ip-adress` och få mer information var någonstans kan felet finns.
+
 
 ---
 ## 5. Recovery-plan
