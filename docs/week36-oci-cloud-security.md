@@ -112,6 +112,41 @@ En oväntad process kan använda mer av systemet tillgångar så att systemet bl
 använder systemet tillgångar. Det kan även vara malware som samlar in information och värsta fall har rättighet att ändra information i systemet och därmed påverka både konfidentialitet och intergritet.
 
 
+Kontroll 5
+
+```bash
+$ journalctl -n 20
+Sep 11 17:45:34 ubuntu systemd[1]: fwupd-refresh.service: Deactivated successfully.
+Sep 11 17:45:34 ubuntu systemd[1]: Finished fwupd-refresh.service - Refresh fwupd metadata and update motd.
+Sep 11 17:50:32 ubuntu systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+Sep 11 17:50:32 ubuntu systemd[1]: sysstat-collect.service: Deactivated successfully.
+Sep 11 17:50:32 ubuntu systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+Sep 11 18:00:32 ubuntu systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+Sep 11 18:00:32 ubuntu systemd[1]: sysstat-collect.service: Deactivated successfully.
+Sep 11 18:00:32 ubuntu systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+Sep 11 18:10:32 ubuntu systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+Sep 11 18:10:32 ubuntu systemd[1]: sysstat-collect.service: Deactivated successfully.
+Sep 11 18:10:32 ubuntu systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+Sep 11 18:16:31 ubuntu systemd[1]: Starting fwupd-refresh.service - Refresh fwupd metadata and update motd...
+Sep 11 18:16:31 ubuntu systemd[1]: fwupd-refresh.service: Deactivated successfully.
+Sep 11 18:16:31 ubuntu systemd[1]: Finished fwupd-refresh.service - Refresh fwupd metadata and update motd.
+Sep 11 18:17:01 ubuntu CRON[1781]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Sep 11 18:17:01 ubuntu CRON[1783]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)
+Sep 11 18:17:01 ubuntu CRON[1781]: pam_unix(cron:session): session closed for user root
+Sep 11 18:20:32 ubuntu systemd[1]: Starting sysstat-collect.service - system activity accounting tool...
+Sep 11 18:20:32 ubuntu systemd[1]: sysstat-collect.service: Deactivated successfully.
+Sep 11 18:20:32 ubuntu systemd[1]: Finished sysstat-collect.service - system activity accounting tool.
+```
+
+**Varför behöver vi loggar?**
+
+Loggar används som spår. Vem och när gjordes vad. Om fel hände, var i systemet hände det. Loggar ger ledtråd var det gick fel och därmed blir processen till att fixa det blir lättare och snabbare.
+Loggning är också för att hålla koll på att endast behörig användare har tillgång till systemet. Om loggning visar oväntat information så finns det risk att det har hänt obehöring intrång.
+
+**Vad skulle vi leta efter om något gått fel?**
+
+När hände felet. Har oväntat process startad. Har viktiga filer ändrat eller nya filer skapad.
+
 ---
 ## 5. Recovery-plan
 ### Vad kan gå fel?
