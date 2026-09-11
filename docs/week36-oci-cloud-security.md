@@ -180,31 +180,53 @@ Testa ´ssh -v vm-ip-adress` och få mer information var någonstans kan felet f
 ---
 ## 5. Recovery-plan
 ### Vad kan gå fel?
+Det går inte logga in på server.
 ### Hur upptäcker jag problemet?
+Error message
 ### Vad kontrollerar jag först?
+Kolla om server är på först.
+Är ssh koppling time out och får error meddelande.
+Kolla om ssh port 22 är öppet.
+Om man direkt tillgång till server kolla ssh status och om ssh server är på.
+Har jag rätt autentisering alltså ssh private nyckel och server har ekvalent offentlig nyckel
+
 ### Hur återställer jag åtkomst?
+Om inget funkar går tillbaka till fungerande snapshot.
+
 ### När behöver jag hjälp?
+Om man inte har direkt tillgång till server be om hjälp från leverantören.
+
+
 ---
 ## 6. Backup
 ### Vad har jag sparat?
+En snapshot som innehåller ren installation.
+En snapshot till som innehåller configurerad system.
 ### Vad finns i GitHub?
+Har inte sparat i Github.
 ### Vad kan återskapas?
+Kan går tillbaka till fungerande snapshot.
 ### Vad går inte att återskapa?
+Om mycket har hänt mellan senaste snapshot och nuvarande. Därför är det viktig att skapa snapshot ofta.
 ---
+
 ## 7. Cleanup
-### VM-instans
-### Diskar
-### Backuper
-### Publika IP-adresser
-### GitHub-evidens
+Cleanup i lokalt vm är enkelt. Bara radera instansen.
 ---
 ## 8. CIA-reflektion
 ### Konfidentialitet
+Konfidentialitet är skapa tilliten att man är den personen man påstår att vara. Det kan göras med vad man vet, lösenord, vad man har, mobil. 
 ### Integritet
+Integritet handlar om att lita på den informationen man har kommer från rätt källa och vägen mellan transporten av informationen har inte ändrad. Det ska finnas åtgärder som gör att man kan dubble kolla om det har hänt några ändringar i information t.ex via hashsum.
 ### Tillgänglighet
+Rätt person ska ha tillgång till informationen när det behövs.
+
 ---
 ## 9. Reflektion
 ### Vad fungerade bra?
+Jag tyckte att säkerhetskontrollera gick bra.
 ### Vad var svårt?
+Hur jag skulle tänka med cia-triaden. Den kom inte naturlig.
 ### Vad lärde jag mig?
+Jag lärde främst om permissions. 4 är läsa, 2 är skriva, 1 är execute.
 
