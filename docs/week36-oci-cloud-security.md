@@ -26,7 +26,7 @@ Namn: ubuntu
 | date           | Visar idagens datum                                                         | Kommando kan visa vilken tidzone man är på och därmed avslöja var man är världen. Med tillräckling hög privelige kan även ändras systemet datum och tid, vilket innebär det kan finnas potentiell fell sparade av tid i logfiler och därmed påverkas intergritet. |
 | id             | Visar användar gruppar                                                      | Visar information om användare och group. Det ger en bild på hur systemet är uppbyggd och potentiell visar måltavla och hur man kommer in i systemet. Konfidentialet                                                                                              |
 | groups         | Visar bara grupp                                                            | Visar villka gruppar finns i systemet. Kan påverka konfidentialetet.                                                                                                                                                                                              |
-| ps aux \| head | Visar alla processer i systmet och även vilken användare som kör processen. | Konfidentialetet. Det finns mycket information om systemet. Vem, vad och när körs processen.                                                                                                                                                                      |
+| ps aux \| head | Visar alla processer i systemet och även vilken användare som kör processen. | Konfidentialetet. Det finns mycket information om systemet. Vem, vad och när körs processen.                                                                                                                                                                      |
 
 ---
 ## 4. Hardening
@@ -83,7 +83,34 @@ Uppdateringen kan ingå säkerhetspatcher som fixar sårbarheter, buggar och sys
 **Vilken del av CIA påverkas?**
 
 Uppdateringen kan fixa sårbarheter och därmed minska risken av obehörig intrång. (Konfidentialitet).
+
 Systemet blir mer stabilt eftersom updateringar brukar fixa buggar som orsakar krachar i applikationer. Mindre krash och användare fortsätta använda applikationen. (Tillgänglighet).
+
+### Kontroll 4
+
+```bash
+$ ps aux | head 
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.1  0.4  24932 16288 ?        Ss   17:03   0:01 /usr/lib/systemd/systemd --switched-root --system --deserialize=51
+root           2  0.0  0.0      0     0 ?        S    17:03   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    17:03   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   17:03   0:00 [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   17:03   0:00 [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   17:03   0:00 [kworker/R-kvfree_rcu_reclaim]
+root           7  0.0  0.0      0     0 ?        I<   17:03   0:00 [kworker/R-slub_flushwq]
+root           8  0.0  0.0      0     0 ?        I<   17:03   0:00 [kworker/R-netns]
+root          10  0.0  0.0      0     0 ?        I<   17:03   0:00 [kworker/0:0H-kblockd]
+```
+
+**Vilka processer verkar vara igång?**
+
+De flesta av processer verkar vara linux kernel relaterad och systemd.
+
+**Hur kan en oväntad process påverka systemet?**
+
+En oväntad process kan använda mer av systemet tillgångar så att systemet blir långsammare och svårare att få tag på grejer därmed påverkar tillgängligheten. Processen kan vara kryptominer som
+använder systemet tillgångar. Det kan även vara malware som samlar in information och värsta fall har rättighet att ändra information i systemet och därmed påverka både konfidentialitet och intergritet.
+
 
 ---
 ## 5. Recovery-plan
