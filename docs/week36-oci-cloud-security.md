@@ -31,7 +31,7 @@ Namn: ubuntu
 ---
 ## 4. Hardening
 
-### Kontrol 1 
+### Kontroll 1 
 
 ```bash
 $ whoami
@@ -54,6 +54,21 @@ Användare `ibrahim` tillhör i åtta grupper.
 Varför ska administrativa rättigheter användas försiktigt?
 
 Admin rättigheter ska användas försiktighet eftersom admin har full kontroll över systemet. Med dessa rättigheter kan man göra permanenta ändringar som kan skada systemet eller gör systemet urfunktion.
+
+### Kontroll 2
+
+```bash
+$ ls -l
+-rw-rw-r-- 1 ibrahim ibrahim 0 Sep 11 16:53 text.txt
+```
+Alla användare kan läsa filen. Bara nuvarande och de som ingår i gruppen kan skriva filen.
+
+```bash
+$ chmod 600 text.txt
+$ ls -l
+-rw------- 1 ibrahim ibrahim 0 Sep 11 16:53 text.txt
+```
+Endast användare `ibrahim` kan läsa och skriva filen.
 
 
 ---
