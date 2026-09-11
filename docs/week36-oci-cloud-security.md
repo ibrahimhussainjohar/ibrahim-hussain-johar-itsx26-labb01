@@ -31,9 +31,31 @@ Namn: ubuntu
 ---
 ## 4. Hardening
 
-| Kontroll | Risk | Vad gjorde jag? | Hur verifierade jag? | CIA |
-|----------|------|-----------------|----------------------|-----|
-|          |      |                 |                      |     |
+### Kontrol 1 
+
+```bash
+$ whoami
+ibrahim
+```
+Användare `ibrahim` används i detta system.
+
+```bash
+$ id
+uid=1000(ibrahim) gid=1000(ibrahim) groups=1000(ibrahim),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users),101(lxd)
+```
+
+```bash
+$ groups
+ibrahim adm cdrom sudo dip plugdev users lxd
+```
+
+Användare `ibrahim` tillhör i åtta grupper.
+
+Varför ska administrativa rättigheter användas försiktigt?
+
+Admin rättigheter ska användas försiktighet eftersom admin har full kontroll över systemet. Med dessa rättigheter kan man göra permanenta ändringar som kan skada systemet eller gör systemet urfunktion.
+
+
 ---
 ## 5. Recovery-plan
 ### Vad kan gå fel?
