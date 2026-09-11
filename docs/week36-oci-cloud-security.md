@@ -208,10 +208,12 @@ Har inte sparat i Github.
 Kan går tillbaka till fungerande snapshot.
 ### Vad går inte att återskapa?
 Om mycket har hänt mellan senaste snapshot och nuvarande. Därför är det viktig att skapa snapshot ofta.
+
 ---
 
 ## 7. Cleanup
 Cleanup i lokalt vm är enkelt. Bara radera instansen.
+
 ---
 ## 8. CIA-reflektion
 ### Konfidentialitet
