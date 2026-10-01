@@ -103,19 +103,22 @@ Ingen avvikelse kunde inte hittas förutom packet 33 till 34 får en misslyckand
 | Konfidentialitetrisk    | Innehållet av en websida och använder aktivetet kan exponseras | Porten fortfarande synlig. Domain är synlig (public IP-adress). Kan inte ses innehållet och svårt att säga vad användare görs i websidan |  |  |
 
 ### Del F: brandvägg och hardening
-Välj ett observerat flöde och ange vilken inkommande eller utgående brandväggsregel som principiellt skulle
-beröra det.
+**Välj ett observerat flöde och ange vilken inkommande eller utgående brandväggsregel som principiellt skulle
+beröra det.**
+
 Paket 9 - 18 använder port 80. Alla trafik ska gå genom router och brandväggen sitter där oftas. Både klienten och server sida kan ha regel om paket ska komma in i privata nättet eller komma ut till offentliga nätet.
 
-Förklara skillnaden mellan en tjänst som lyssnar lokalt och trafik som tillåts passera en brandvägg.
+**Förklara skillnaden mellan en tjänst som lyssnar lokalt och trafik som tillåts passera en brandvägg.**
+
 En server kan vara igång med en port betyder inte att den är nåbar om brandväggen blockerar trafiken. Om det inte fanns några öppna portar och brandväggen släpper fram trafiken då skulle det inte finnas något direkt risk. Men i framtiden skulle porten öppnas på grund av att ha lokalt server eller en test med porten och tanken var aldrig att ha anslutning med världen. Då finns det en risk.
 
 
-Resonera om default deny och minsta nödvändiga öppning.
+**Resonera om default deny och minsta nödvändiga öppning.**
+
 Default deny innebär att alla portar blockeras och minsta nödvändiga öppning är öppna endast portar som används. Detta minska ytan för potentiellt attack.
 
-Koppla analysen till föregående veckors hardening: är de observerade tjänsterna och flödena rimliga för
-miljön?
+**Koppla analysen till föregående veckors hardening: är de observerade tjänsterna och flödena rimliga för
+miljön?**
 
 Observationen som gjordes i wireshark verkar vara rimlig. Ingen okänt port användes. Däremot kan port 80 vara problematisk. Istället att använda http som är okrypterad, använd https som uppnår samma mål som http fast det är krypterad. Därför kanske port 80 borde blockeras.
 
