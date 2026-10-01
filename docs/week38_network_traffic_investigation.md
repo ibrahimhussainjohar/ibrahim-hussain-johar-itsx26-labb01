@@ -131,15 +131,21 @@ Observationen som gjordes i wireshark verkar vara rimlig. Ingen okänt port anv�
 
 ### Del H: slutsats och rekommendation
 **Skriv en sammanhängande slutsats som besvarar:**
-**Vad hände i den analyserade trafiken?
+
+**Vad hände i den analyserade trafiken?**
+
 DNS-uppslag, lyckad HTTP-session, lyckad TLS-session, ett misslyckat DNS-uppslag, pings.
 
 **Vilka observationer är starkast underbyggda?**
+
 Observationen visar publik ip adressen till servern. Visar vilka portar användes. Visade även hur HTTP kundes läsa i klar text. Verifierade att TLS var krypterat.
 
 **Vilken säkerhets- eller driftåtgärd rekommenderar du, utan att överdriva vad pcapen visar?**
+
 Rekommenation är att använda https istället för http om det går.
+
 **Vilken ytterligare evidens skulle du samla in i nästa steg?**
+
 Jag skulle fånga min egen fångst och i längre tid för att få bättre uppfattning på hur min trafiken ser ut.
 ### AI-användning
 Jag använde AI till att bättre förstå hur OSI-model och TCP-model. Diagramet gjordes själv och AI dubble kollade om jag hade gjord rätt.
