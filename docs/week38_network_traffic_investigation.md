@@ -60,15 +60,6 @@ Private-IP --TCP/80 --> Server-Private-IP
 Server-Private-IP --TCP/80 --> Private-IP
 ```
 
-lokalt interface och lokal IP-adress
-    applikationsprotokoll
-    transportprotokoll och port
-default route och gateway - NAT/PAT som princip
-    brandväggens möjliga beslutspunkt
-DNS-uppslag
-privat respektive publik adress
-
-
 ### Del C: protokollinventering
 
 | Protokoll | Minsta evidens                                                                                               | Analysfråga                                                                                                                                                                                                       |
