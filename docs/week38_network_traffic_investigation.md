@@ -99,7 +99,6 @@ Ingen avvikelse kunde inte hittas förutom packet 33 till 34 får en misslyckand
 |-------------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Synlig metadata         | Request method, URI, Version, Host, User-Agent                 | Krypterat, kunde inte hitta header och innehållet                                                                                        |
 | Läsbar applikationsdata | Kunde läsa både header och innehållet. Data kom i plain text   | Krypterat, Oläsbar karaktärer i wireshark rawformat.                                                                                     |
-
 | Konfidentialitetrisk    | Innehållet av en websida och använder aktivetet kan exponseras | Porten fortfarande synlig. Domain är synlig (public IP-adress). Kan inte ses innehållet och svårt att säga vad användare görs i websidan |  |  |
 
 ### Del F: brandvägg och hardening
