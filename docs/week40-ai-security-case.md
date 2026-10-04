@@ -75,7 +75,9 @@ A municipal department got several email. Sender seems to be internal IT support
 **Fel och korrigeringar:** Claude föreslog en teknisk koppling som byggde på moment som vi inte hade gjort i kursen. Jag rättade det och skrev utifrån vad vi faktiskt gjorde: ett skript för DNS och port samt Wireshark. Jag la också till en egen hypotes om att länken kan ladda ner skadlig fil och att åtgärden ska verifieras med en phishingsimulering. Claudes förslag på riskbedömning har jag motiverat själv utifrån caset.
 
 Källhänvisning:
+
 CIS-kontroller - kursmaterial
+
 CIS v8.1: https://www.cisecurity.org/controls/v8-1
 
 # Slutsats
