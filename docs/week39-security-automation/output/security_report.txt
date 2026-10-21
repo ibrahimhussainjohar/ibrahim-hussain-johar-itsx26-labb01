@@ -6,10 +6,12 @@ Failed logins: 4
 Unique source IPs (auth): 2
 IOC matches (access): 3
 Most frequent failed-login source: 203.0.113.15 (3)
-Malformed lines skipped: 0
+Malformed lines skipped: 1
 
 OBSERVATION
-IP-adressen 203.0.113.15 förekommer flest gånger (3 st) bland misslyckade inloggningar i auth.log. Adresser från indikatorlistan har även observerats i access.log.
+IP-adressen 203.0.113.15 förekommer flest gånger (3 st) bland misslyckade inloggningar i auth.log.
+198.51.100.44 finns i indikatorlistan och förekommer 1 gånger i access.log.
+203.0.113.15 finns i indikatorlistan och förekommer 2 gånger i access.log.
 
 LIMITATION
 Resultatet baseras enbart på tillhandahållna textloggar och visar inte om trafiken var skadlig eller om indikatorlistan är aktuell.

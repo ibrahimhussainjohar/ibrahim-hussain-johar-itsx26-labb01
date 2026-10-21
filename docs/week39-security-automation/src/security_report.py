@@ -4,10 +4,10 @@
 # ==========================================
 # KONFIGURATION AV SÖKVÄGAR OCH FILER
 # ==========================================
-AUTH_LOG_PATH = "../data/auth.log"
-ACCESS_LOG_PATH = "../data/access.log"
-INDICATORS_PATH = "../data/suspicious_ips.txt"
-OUTPUT_REPORT_PATH = "../output/security_report.txt"
+AUTH_LOG_PATH = "data/auth.log"
+ACCESS_LOG_PATH = "data/access.log"
+INDICATORS_PATH = "data/suspicious_ips.txt"
+OUTPUT_REPORT_PATH = "output/security_report.txt"
 
 def load_indicators(file_path):
     """Läser indikatorlistan och sparar unika IP-adresser i en mängd (set)."""
@@ -19,7 +19,8 @@ def load_indicators(file_path):
                 if ip:
                     indicators.add(ip)
     except FileNotFoundError:
-        print(f"Varning: Kunde inte hitta indikatorfilen {file_path}")
+        print(f"Kunde inte hitta {file_path}. Kontrollera projektstrukturen och kör från projektroten.")
+        raise SystemExit(1)
     return indicators
 
 def analyze_auth_log(file_path):
@@ -31,21 +32,26 @@ def analyze_auth_log(file_path):
     try:
         with open(file_path, encoding="utf-8") as f:
             for line in f:
-                if "Failed login" not in line:
+                if line.strip() == "":
                     continue
-                failed_count += 1
                 parts = line.split()
-                
+
                 # Extrahera fält som börjar med src=
                 source_fields = [p for p in parts if p.startswith("src=")]
                 if not source_fields:
                     malformed_count += 1
                     continue
-                
+
+                # Bara rader med Failed login räknas som misslyckade inloggningar
+                if "Failed login" not in line:
+                    continue
+                failed_count += 1
+
                 ip = source_fields[0].split("=")[1]
                 ip_counts[ip] = ip_counts.get(ip, 0) + 1
     except FileNotFoundError:
-        print(f"Varning: Kunde inte hitta loggfilen {file_path}")
+        print(f"Kunde inte hitta {file_path}. Kontrollera projektstrukturen och kör från projektroten.")
+        raise SystemExit(1)
         
     return failed_count, malformed_count, ip_counts
 
@@ -63,7 +69,8 @@ def analyze_access_log(file_path, suspicious_ips):
                 if ip in suspicious_ips:
                     matches[ip] = matches.get(ip, 0) + 1
     except FileNotFoundError:
-        print(f"Varning: Kunde inte hitta loggfilen {file_path}")
+        print(f"Kunde inte hitta {file_path}. Kontrollera projektstrukturen och kör från projektroten.")
+        raise SystemExit(1)
     return matches
 
 def main():
@@ -86,6 +93,21 @@ def main():
     unique_ip_count = len(auth_ip_counts)
     total_ioc_matches = sum(access_matches.values())
 
+    # Observationer byggs av resultaten (ingen fast text som kan bli fel)
+    observation_lines = []
+    if auth_ip_counts:
+        observation_lines.append(
+            f"IP-adressen {most_frequent_ip} förekommer flest gånger ({most_frequent_count} st) bland misslyckade inloggningar i auth.log.")
+    else:
+        observation_lines.append("Inga misslyckade inloggningar hittades i auth.log.")
+    if access_matches:
+        for ip in sorted(access_matches):
+            observation_lines.append(
+                f"{ip} finns i indikatorlistan och förekommer {access_matches[ip]} gånger i access.log.")
+    else:
+        observation_lines.append("Ingen adress i access.log matchade indikatorlistan.")
+    observation_text = "\n".join(observation_lines)
+
     # 4. Bygg rapporten som ska skrivas till fil och terminal
     report_lines = [
         "==============================",
@@ -99,7 +121,7 @@ def main():
         f"Malformed lines skipped: {malformed_lines}",
         "",
         "OBSERVATION",
-        f"IP-adressen {most_frequent_ip} förekommer flest gånger ({most_frequent_count} st) bland misslyckade inloggningar i auth.log. Adresser från indikatorlistan har även observerats i access.log.",
+        observation_text,
         "",
         "LIMITATION",
         "Resultatet baseras enbart på tillhandahållna textloggar och visar inte om trafiken var skadlig eller om indikatorlistan är aktuell.",
