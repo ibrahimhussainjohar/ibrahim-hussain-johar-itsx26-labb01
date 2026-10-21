@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # src/security_report.py
 # Säkerhetsautomatisering - ITSX26 Kursvecka 5
 
