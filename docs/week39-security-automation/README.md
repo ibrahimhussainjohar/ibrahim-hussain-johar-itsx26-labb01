@@ -13,7 +13,7 @@ Programmet **analyserar bara**. Det kontaktar inga externa tjänster, loggar int
 | `data/auth.log` | Räkna misslyckade inloggningar, extrahera käll-IP, hitta felaktiga rader |
 | `data/access.log` | Matcha käll-IP mot indikatorlistan |
 | `data/suspicious_ips.txt` | IOC-lista (medlemskontroll) |
-| `data/firewall.log` | Finns i projektet men analyseras **inte** av programmet (se Kända begränsningar) |
+| `data/firewall.log` | Används inte scriptet |
 
 Data har inte bytts under arbetet.
 
@@ -75,4 +75,4 @@ Alla tester kördes mot projektets egna filer. Kontrollvärdena är räknade man
 
 ## AI-redovisning
 - **Verktyg:** Claude (Anthropic)
-- **Vad AI hjälpte till med:** granskning av kod och om uppgiften har uppnåt krave,  README-mall]
+- **Vad AI hjälpte till med:** granskning av kod och om uppgiften har uppnåt kravet,  README-mall
