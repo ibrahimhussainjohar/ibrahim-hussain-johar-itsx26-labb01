@@ -13,7 +13,7 @@ Programmet **analyserar bara**. Det kontaktar inga externa tjänster, loggar int
 | `data/auth.log` | Räkna misslyckade inloggningar, extrahera käll-IP, hitta felaktiga rader |
 | `data/access.log` | Matcha käll-IP mot indikatorlistan |
 | `data/suspicious_ips.txt` | IOC-lista (medlemskontroll) |
-| `data/firewall.log` | Används inte scriptet |
+| `data/firewall.log` | Används inte i scriptet |
 
 Data har inte bytts under arbetet.
 
